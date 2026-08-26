@@ -1,68 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Elaa ❤️</title>
 
-<title>For You ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fff0f5;
-    text-align: center;
-    color: #5a3040;
-}
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #14000a, #3b0018, #16000d);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-.page {
-    min-height: 100vh;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-}
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+    }
 
-.page.active {
-    display: flex;
-}
+    h1 {
+      font-size: 55px;
+      margin-bottom: 15px;
+      animation: heartbeat 1.5s infinite;
+    }
 
-.card {
-    background: white;
-    padding: 40px 25px;
-    border-radius: 25px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+    h2 {
+      font-size: 32px;
+      color: #ff7aa8;
+      margin-bottom: 25px;
+    }
 
-h1 {
-    font-size: 32px;
-}
+    .heart {
+      font-size: 90px;
+      margin: 20px;
+      animation: heartbeat 1.2s infinite;
+    }
 
-button {
-    border: none;
-    padding: 15px 30px;
-    margin: 10px;
-    border-radius: 30px;
-    font-size: 18px;
-    cursor: pointer;
-}
+    .message {
+      max-width: 700px;
+      font-size: 20px;
+      line-height: 1.8;
+      background: rgba(255,255,255,0.08);
+      padding: 30px;
+      border-radius: 25px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 30px rgba(255, 50, 120, 0.2);
+    }
 
-.yes {
-    background: #e88aa5;
-    color: white;
-}
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4f87;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-.no {
-    background: #eee;
-}
+    button:hover {
+      transform: scale(1.1);
+      background: #ff286d;
+    }
 
-img {
-    max-width: 100%;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-</style>
-</head
+    #secret {
+      display: none;
+      margin-top: 25px;
+      font-size: 22px;
+      color: #ff9fbe;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -50px;
+      font-size: 25px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.12);
+      }
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      h2 {
+        font-size: 25px;
+      }
+
+      .message {
+        font-size: 17px;
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>For Elaa</h1>
+
+    <h2>My favorite person 💕</h2>
+
+    <div class="message">
+      <p>
+        Elaa, I just want you to know how special you are to me.
+        You make my days brighter and my heart happier.
+        Every moment with you is a moment I want to remember forever.
+      </p>
+
+      <br>
+
+      <p>
+        I don't need a perfect world.
+        I just need you in mine. ❤️
+      </p>
+    </div>
+
+    <button onclick="showSecret()">
+      Click me ❤️
+    </button>
+
+    <div id="secret">
+      I love you more than words can explain. 💗
+      <br>
+      Forever and always. ♾️❤️
+    </div>
+
+  </div>
+
+  <script>
+    function showSecret() {
+      document.getElementById("secret").style.display = "block";
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+
+      heart.className = "floating-heart";
+      heart.innerHTML = "❤️";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 700);
+  </script>
+
+</body>
+</html>
